@@ -1,4 +1,4 @@
-{ lib, pkgs, modulesPath, ... }:
+{ lib, inputs, pkgs, modulesPath, ... }:
 {
   imports = [
     # This module installs the firmware
@@ -45,7 +45,6 @@
       enable = true;
 
       networks."10-lan" = {
-        # This is the correct interface name on my raspi 4b
         matchConfig.Name = "end0";
         networkConfig.DHCP = "yes";
         linkConfig.RequiredForOnline = "routable";
@@ -76,7 +75,6 @@
   environment.systemPackages = with pkgs; [
     libraspberrypi
     raspberrypi-eeprom
-    k3s
   ];
 
   hardware.enableRedistributableFirmware = true;

@@ -7,12 +7,19 @@
 
   outputs = { self, nixpkgs, ... }@inputs: rec {
 
-    # here goes the other flake outputs, if you have any
-
-    nixosConfigurations."pi" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."server" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [
         ./configuration.nix
+        ./k3s/server.nix
+      ];
+    };
+
+    nixosConfigurations."agent" = nixpkgs.lib.nixosSystem {
+      system = "aarch64-linux";
+      modules = [
+        ./configuration.nix
+        ./k3s/agent.nix
       ];
     };
   };
