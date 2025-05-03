@@ -52,15 +52,12 @@
     };
   };
 
-  # Add your username and ssh key
   users.users.grant = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILj262NWEDO459d3i6mOaMlhTXIQ3FN/PqfFciFlEXdd ruddickmg@gmail.com" ];
   };
 
-  # Our user doesn't have a password, so we let them
-  # do sudo without one
   security.sudo.wheelNeedsPassword = false;
 
   services = {
