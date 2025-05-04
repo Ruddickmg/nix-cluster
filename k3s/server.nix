@@ -3,7 +3,7 @@
     imports = [
         ./common.nix
     ];
-
+    networking.hostName = "server-node";
     services.k3s = {
         role = "server";
         clusterInit = true;

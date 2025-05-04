@@ -34,8 +34,6 @@
   sdImage.compressImage = false;
 
   networking = {
-    # Set your hostname
-    hostName = "pi-node";
     useNetworkd = true;
   };
 
