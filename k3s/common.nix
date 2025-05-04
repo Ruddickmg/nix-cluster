@@ -4,7 +4,6 @@
         k3s
     ];
     networking.firewall = {
-        enable = false;
         allowedTCPPorts = [
             6443 # k3s: required so that pods can reach the API server (running on port 6443 by default)
         ];
@@ -19,3 +18,4 @@
     # disable swap for k8s cluster
     swapDevices = lib.mkForce [ ];
 }
+
