@@ -1,4 +1,4 @@
-{ lib, pkgs, modulesPath, ... }:
+{ lib, inputs, pkgs, modulesPath, ... }:
 {
   imports = [
     # This module installs the firmware
@@ -34,8 +34,6 @@
   sdImage.compressImage = false;
 
   networking = {
-    # Set your hostname
-    hostName = "pi-node";
     useNetworkd = true;
   };
 
@@ -45,7 +43,6 @@
       enable = true;
 
       networks."10-lan" = {
-        # This is the correct interface name on my raspi 4b
         matchConfig.Name = "end0";
         networkConfig.DHCP = "yes";
         linkConfig.RequiredForOnline = "routable";
@@ -53,15 +50,12 @@
     };
   };
 
-  # Add your username and ssh key
   users.users.grant = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [ "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILj262NWEDO459d3i6mOaMlhTXIQ3FN/PqfFciFlEXdd ruddickmg@gmail.com" ];
   };
 
-  # Our user doesn't have a password, so we let them
-  # do sudo without one
   security.sudo.wheelNeedsPassword = false;
 
   services = {
@@ -76,7 +70,6 @@
   environment.systemPackages = with pkgs; [
     libraspberrypi
     raspberrypi-eeprom
-    k3s
   ];
 
   hardware.enableRedistributableFirmware = true;
