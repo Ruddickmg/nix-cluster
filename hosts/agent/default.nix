@@ -1,8 +1,5 @@
 { lib, pkgs, modulesPath, ... }:
 {
-    imports = [
-      ../../configuration.nix
-      ../../applications
-    ];
+    imports = [ ../configuration.nix ];
     services.k3s.agent.enable = true;
 }

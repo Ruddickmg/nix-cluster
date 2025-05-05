@@ -2,7 +2,6 @@
 {
     imports = [ ./common.nix ];
     config = lib.mkIf config.services.k3s.server.enable {
-        networking.hostName = "server-node";
         services.k3s = {
             role = "server";
             clusterInit = true;
