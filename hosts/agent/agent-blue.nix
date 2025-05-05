@@ -1,7 +1,7 @@
 { lib, pkgs, modulesPath, ... }:
 {
     imports = [
-      ../k3s/agent.nix
+      ./default.nix
     ];
     networking.hostName = "agent-blue";
 }
