@@ -27,7 +27,6 @@
         };
         services.k3s = {
             enable = true;
-            token = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         };
         # disable swap for k8s cluster
         swapDevices = lib.mkForce [ ];

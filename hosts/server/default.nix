@@ -1,12 +1,5 @@
 { lib, pkgs, modulesPath, ... }:
 {
-    imports = [
-      ../../configuration.nix
-      ../../applications
-    ];
+    imports = [ ../configuration.nix ];
     services.k3s.server.enable = true;
-    services.tailscale = {
-        authKey = "";
-        enable = true;
-    };
 }
