@@ -9,7 +9,7 @@
                 "--disable=traefik"
                 "--flannel-backend=host-gw"
                 "--tls-san=${config.services.k3s.host}"
-                "--tls-san=cluster"
+                "--tls-san=${config.networking.hostName}"
                 "--bind-address=${config.services.k3s.host}"
                 "--advertise-address=${config.services.k3s.host}"
                 "--node-ip=${config.services.k3s.host}"
