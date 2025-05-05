@@ -1,5 +1,9 @@
-server:
-  nix run nixpkgs#nixos-generators -- -f sd-aarch64 --flake .#server --system aarch64-linux -o ./server.sd
+build: server-white agent-blue agent-green agent-red
+
+clear: clear-history collect-garbage
+
+server-white:
+  nix run nixpkgs#nixos-generators -- -f sd-aarch64 --flake .#server-white --system aarch64-linux -o ./server-white.sd
 
 agent-red:
   nix run nixpkgs#nixos-generators -- -f sd-aarch64 --flake .#agent-red --system aarch64-linux -o ./agent-red.sd
@@ -15,5 +19,3 @@ clear-history:
 
 collect-garbage:
   nix-collect-garbage --delete-old
-
-clear: clear-history collect-garbage

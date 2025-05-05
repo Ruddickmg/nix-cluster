@@ -7,7 +7,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs: rec {
 
-    nixosConfigurations."server" = nixpkgs.lib.nixosSystem {
+    nixosConfigurations."server-white" = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = [ ./hosts/server/server-white.nix ];
     };
