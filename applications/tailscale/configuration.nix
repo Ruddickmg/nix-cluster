@@ -7,6 +7,7 @@
     };
 
     config = lib.mkIf config.services.tailscale.enable {
+        services.tailscale.disableTaildrop = true;
 
         # create a oneshot job to authenticate to Tailscale
         systemd.services.tailscale-autoconnect = {

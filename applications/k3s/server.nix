@@ -1,6 +1,6 @@
 { lib, pkgs, config, modulesPath, ... }:
 {
-    imports = [ ./common.nix ];
+    imports = [ ./configuration.nix ];
     config = lib.mkIf config.services.k3s.server.enable {
         services.k3s = {
             role = "server";
@@ -8,10 +8,8 @@
             extraFlags = toString [
                 "--disable=traefik"
                 "--flannel-backend=host-gw"
-                "--tls-san=${config.services.k3s.host}"
                 "--tls-san=${config.networking.hostName}"
-                "--bind-address=${config.services.k3s.host}"
-                "--advertise-address=${config.services.k3s.host}"
+                "--tls-san=${config.services.k3s.host}"
                 "--node-ip=${config.services.k3s.host}"
             ];
         };
