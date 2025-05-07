@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 {
     imports = [
-        ./connection.nix
+        ./configuration.nix
     ];
 
     config = lib.mkIf config.services.tailscale.enable {
